@@ -1,0 +1,59 @@
+<%- include("partials/header.ejs") %>
+
+<main>
+    <section class="sctn-about">
+        <p>ShouryuGAMES es tu destino para explorar y disfrutar de emocionantes juegos retro. Sumérgete en la nostalgia con nuestra amplia selección de juegos clásicos y descubre títulos icónicos que marcaron épocas pasadas. Además, ahora podrás comprar tus juegos favoritos directamente desde nuestra plataforma y jugarlos cómodamente en la misma página.</p>
+        <img src="assets/images/imagen1.jpg" alt="">
+    </section>
+    <%
+    if (juegos && juegos.length > 0) {
+      var indiceAleatorio = Math.floor(Math.random() * juegos.length);
+      var juegoAleatorio = juegos[indiceAleatorio];
+    %>
+    <section class="sctn-principal">
+      <article class="principal-game"><img src="assets/images/boxArt/<%= juegoAleatorio.caratula %>" alt="juego de la pagina principal número 1"></article>
+      <article class="principal-game-details">
+        <h2><%= juegoAleatorio.nombre %></h2>
+        <p><%= juegoAleatorio.descripcion %></p>
+        <div>Precio: <%= juegoAleatorio.precio %></div>
+        <button type="submit">Comprar Ahora</button>
+      </article>
+    </section>
+    <%
+    }
+    %>
+    <% if (juegos) {%>
+  <section class="home-1">
+    <% var contador = 0; %>
+    <% juegos.forEach(function(juego) { %>
+      <% if (!juego.precio_oferta && contador < 18) { %>
+        <article class="gameID<%= juego.id %> animate">
+          <img src="assets/images/boxArt/<%= juego.caratula %>" alt="">
+          <div class="price-home1">
+            <p>Precio: <%= juego.precio %></p>
+          </div>
+        </article>
+        <% contador++; %>
+      <% } %>
+    <% }); %>
+  </section>
+<% } %>
+      <h2>Juegos con descuento</h2>
+      <% if (juegos) { %>
+  <section class="home-2">
+    <% juegos.forEach(function(juego) { %>
+      <% if (juego.precio_oferta) { %>
+        <article class="home2-game<%= juego.id %> animate">
+          <img src="assets/images/boxArt/<%= juego.caratula %>" alt="">
+          <div class="price-home2">
+            <p class="price-deal off">Precio: <%= juego.precio %></p>
+            <p class="Price-deal-on">Precio Rebaja: <%= juego.precio_oferta %></p>
+          </div>
+        </article>
+      <% } %>
+    <% }); %>
+  </section>
+<% } %>   
+  </main>
+
+<%- include("partials/footer.ejs") %>

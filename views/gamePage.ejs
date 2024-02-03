@@ -1,0 +1,34 @@
+<%- include("partials/header.ejs") %>
+
+<main>
+  <section class="game-info">
+    <div class="game-cover">
+      <img src="assets/images/boxArt/<%= juego.caratula %>" alt="Carátula del Juego">
+    </div>
+    <div class="game-details">
+      <p>Descripción del Juego: <%= juego.descripcion %></p>
+      <p>Precio: $<%= juego.precio %></p>
+      <% if (juego.precio_oferta) { %>
+        <p>Precio en Oferta: $<%= juego.precio_oferta %></p>
+      <% } %>
+      <p>Géneros: <%= juego.genero %></p>
+      <button class="buy-button">Pagar</button>
+    </div>
+  </section>
+
+  <!-- Sección de recomendaciones -->
+  <section class="recommendations">
+    <h2>Recomendaciones</h2>
+    <div class="game-list">
+      <% for (var i = 0; i < recomendaciones.length; i++) { %>
+        <div class="game">
+          <img src="assets/images/boxArt/<%= recomendaciones[i].caratula %>" alt="Carátula del Juego">
+          <p>Nombre: <%= recomendaciones[i].nombre %></p>
+          <p>Precio: $<%= recomendaciones[i].precio %></p>
+        </div>
+      <% } %>
+    </div>
+  </section>
+</main>
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,5 @@
+Adventure Island (USA);6.99;{Un malvado brujo ha secuestrado al gran amor de maese Higgins, Tina. Para salvarla, tendrás que recorrer ocho peligrosas zonas repletas de enemigos dispuestos a pararte los pies.
+
+Por si eso fuera poco, irás perdiendo energía a medida que pase el tiempo, así que deberás recoger fruta, leche y todo lo que encuentres en tu camino hacia la meta.
+
+Destruye huevos para obtener objetos útiles, como el hacha o el monopatín, que te ayudarán a avanzar en la partida. Al final de cada nivel, tendrás que enfrentarte a una de las formas que adoptará el brujo. ¡Corre, maese Higgins, corre!};plataforma, konami

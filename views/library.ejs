@@ -1,0 +1,52 @@
+<%- include("partials/header library.ejs") %>
+
+<main>
+  <section class="sctn-library">
+    <p>
+      <select id="romList">
+        <% roms.forEach(function(rom) { %>
+            <option value="roms/<%= rom %>"><%= rom.replace('.nes', '') %></option>
+        <% }); %>
+    </select>
+    <button id="loadROMButton" onclick="loadRom()">Load Game</button>
+    <button id="unloadROMButton" onclick="unloadRom()" disabled>Withdraw Game</button><br />
+    Select the ROM you want to play (only the ROMs you have acquired will appear).
+  </p>
+  <p>
+    <canvas id="mainCanvas" width="256" height="240"
+            style="border:4px solid black; width:512px; height:480px;">
+            <div class="fps"><span id="fps"></span> fps</div>
+            <div id="fullscreenButton" class="fullscreen-button">&#128470;</div>
+          </canvas>
+    <h3>Controls:</h3>
+    <div class="controls">
+      <div>Z</div>
+      <div>X</div>
+      <div>Backspace</div>
+      <div>Enter</div>
+      <span class="arrow-keys">
+        <div class="left">⬅</div>
+        <div class="up">⬆</div>
+        <div class="down">⬇</div>
+        <div class="right">⮕</div>
+      </span>
+    </div>
+  </p>
+  <p>
+    <h3>Emulator Console:</h3>
+    <div>
+      <button id="dumpROMButton" onclick="pushDumpROM()">dump ROM</button>
+      <button id="dumpRegButton" onclick="pushDumpReg()">dump CPU/PPU reg</button>
+      <button id="dumpRAMButton" onclick="pushDumpRAM()">dump CPU RAM</button>
+      <button id="dumpVRAMButton" onclick="pushDumpVRAM()">dump PPU VRAM</button>
+      <button id="dumpSPRRAMButton" onclick="pushDumpSPRRAM()">dump PPU SPRRAM</button>
+      <button id="stopButton" onclick="pushStopButton()">stop</button>
+      <button id="stepButton" onclick="pushStepButton()">step</button>
+      <button id="resumeButton" onclick="pushResumeButton()">resume</button>
+    </div>
+    <textarea id="dump" cols="128" rows="16" readonly="readonly"> </textarea>
+  </p>
+</section>
+</main>
+
+<%- include("partials/footer.ejs") %>
