@@ -21,10 +21,6 @@
   ],
   "author": "Ivan Longaric Montaño",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/takahirox/nes-js/issues"
-  },
-  "homepage": "https://github.com/takahirox/nes-js#readme",
   "devDependencies": {
     "webpack": "^5.89.0"
   },
